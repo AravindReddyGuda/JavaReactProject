@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Welcome</h2>
+            <div th:if="${name}">
+                <p>Hello, <span th:text="${name}"></span>!</p>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn">Logout</button>
+                </form>
+            </div>
+            <div th:unless="${name}">
+                <p>Please log in to continue.</p>
+                <a href="/login" class="btn">Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
